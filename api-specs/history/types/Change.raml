@@ -1,0 +1,45 @@
+#%RAML 1.0 DataType
+type: object
+displayName: Change
+description:
+  Captures the differences in a resource between one version and the next.
+properties:
+  version:
+    type: integer
+    description: Version of the resource after the change.
+  previousVersion:
+    type: integer
+    description: Version of the resource before the change.
+  type:
+    type: string
+    enum:
+      - 'ResourceUpdated'
+      - 'ResourceCreated'
+      - 'ResourceDeleted'
+    description: Type of the change (creation, update or deletion).
+  modifiedBy:
+    type: ModifiedBy
+    description: Information about the user or the client who performed the change.
+  modifiedAt:
+    type: string
+    description: Date and time when the change was made.
+  label?:
+    type: string | LocalizedString| CustomerLabel | ProductLabel | PaymentLabel | ReviewLabel
+    description: Information that describes the resource after the change.
+  previousLabel?:
+    type: string | LocalizedString| CustomerLabel | ProductLabel | PaymentLabel | ReviewLabel
+    description: Information that describes the resource before the change.
+  actions:
+    type: array
+    items: Action | CommonAction
+    description: |
+      Shows which update actions were performed and how values were modified.
+      The value is, however, not the exact copy of the payloads of the update actions performed.
+  resource:
+    type: Reference
+    description: |
+      [Reference](/types#reference) to the changed resource.
+  withoutChanges:
+    type: boolean
+    description: |
+      `true` if no change was detected.

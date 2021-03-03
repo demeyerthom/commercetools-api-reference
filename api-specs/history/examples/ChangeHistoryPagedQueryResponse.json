@@ -1,0 +1,33 @@
+{
+  "limit": 20,
+  "offset": 0,
+  "count": 1,
+  "total": 0,
+  "results": [
+    {
+      "version": 2,
+      "previousVersion": 1,
+      "type": "ResourceUpdated",
+      "modifiedAt": "2020-03-22T23:00:00.000Z",
+      "modifiedBy": {
+        "isPlatformClient": true,
+        "id": "example_user_123",
+        "type": "user"
+      },
+      "resource": {
+        "id": "some_entity_id_123",
+        "typeId": "product"
+      },
+      "label": "some_label",
+      "previousLabel": "some_label",
+      "withoutChanges": false,
+      "actions": [
+        {
+          "action": "setName",
+          "previousValue": "Name 1",
+          "nextValue": "Name 2"
+        }
+      ]
+    }
+  ]
+}
